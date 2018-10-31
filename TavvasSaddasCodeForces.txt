@@ -1,0 +1,16 @@
+#include <iostream>
+#include<string.h>
+using namespace std;
+#define ll long long
+int main() {
+    char N[64];
+    cin>>N;
+    int length=strlen(N);
+    ll ans=(1<<length)-2;
+    for(int i=length-1,pos=0;i>=0;i--,pos++){
+        if(N[i]=='7'){
+            ans+=1<<pos;
+        }
+    }
+    cout<<ans+1<<endl;
+}

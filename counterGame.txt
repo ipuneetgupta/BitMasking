@@ -1,0 +1,66 @@
+#include <iostream>
+#include<string>
+using namespace std;
+typedef unsigned long long ll;
+int IsPowerOfTwo(ll num)
+{
+    return num&&(num&(num-1))==0;
+}
+string CouterGame(ll num)
+{
+    int Max=64;
+    int cnt=1;
+    int j=1;
+    int two_Power[Max];
+    two_Power[0]=1;
+    for(int i=0; i<Max-1; i++)
+    {
+        two_Power[i+1]=two_Power[i]*2;
+    }
+    while(num!=1)
+    {
+        if(IsPowerOfTwo(num))
+        {
+            num=num/2;
+            cnt++;
+        }
+        else
+        {
+
+
+            for(j=1; j<Max; j++)
+            {
+                if(two_Power[j]>num)
+                {
+                    break;
+                }
+            }
+            num=num-two_Power[j-1];
+            cnt++;
+        }
+    }
+    if(cnt%2==0)
+    {
+        return "Louise";
+    }
+    else
+    {
+        return "Richard";
+    }
+
+}
+
+int main()
+
+{
+    int test;
+        cin>>test;
+    for(int i=0;i<test;i++){
+
+    string ans;
+     unsigned long long n;
+     cin>>n;
+    ans=CouterGame(n);
+    cout<<ans<<"\n";
+    }
+}

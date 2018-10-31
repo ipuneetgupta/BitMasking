@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+unsigned int FlippingBit(long num){
+    int i=0;
+    long cntbit=num;
+    while(i<32){  
+       long mask=1<<(i);
+      num=num^mask;
+     // cntbit=cntbit>>1;
+      i++;
+    }
+ 
+    return num;
+}
+int main() {
+    long n;
+    cin>>n;
+    cout<<FlippingBit(n);
+}

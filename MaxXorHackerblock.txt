@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int MaxXoring(int a,int b){
+    int ans=0;
+  while(a<=b){
+     int cnt=a;
+   while(cnt<=b){
+       int temp=a^cnt;
+       if(temp>ans){
+           ans=temp;
+       }
+       cnt++;
+   }
+   a++;
+  }
+return ans;
+}
+int main() {
+    int test;
+    cin>>test;
+    for(int i=0;i<test;i++){
+    int a,b;
+    cin>>a>>b;
+    cout<<MaxXoring(a,b);
+    }
+
+}

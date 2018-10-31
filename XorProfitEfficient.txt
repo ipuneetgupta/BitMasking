@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int XorProfit(int a , int b){
+    int p=a^b,c=0;
+    while(p>0){
+    c++;
+    p=p>>1;
+    }
+    int ans=(1<<c)-1;
+    return ans;
+}
+int main() {
+    int a,b;
+    cin>>a>>b;
+    cout<<XorProfit(a,b);
+}

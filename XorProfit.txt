@@ -1,0 +1,27 @@
+#include <iostream>
+#include<cmath>
+using namespace std;
+int XorProfit(int a,int b){
+    int i=0;
+    i=a-1;
+    int XorVal=0;
+  while(i!=b){
+     int j=i+1;
+      while(j!=b){
+          int ans=j^b;
+          if(ans>XorVal){
+              XorVal=ans;
+          }
+          j++;
+      }
+      i++;
+  }
+  return XorVal;
+
+}
+int main() {
+int a,b;
+cin>>a>>b;
+int ans=XorProfit(a,b);
+cout<<ans;
+}

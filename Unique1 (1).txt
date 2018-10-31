@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+void FindUnique2(int *arr,int len){
+int xorNo=0;
+for(int i=0;i<len;i++){
+    xorNo=xorNo^arr[i];
+}
+int a=0;
+int NO=xorNo;
+while(NO>0){
+    if(NO&1){
+        break;
+    }
+    a++;
+   NO=NO>>1;
+}
+int mask=1<<a;
+
+
+int FirstNo=0;
+for(int i=0;i<len;i++){
+    //FirstNo=(mask&arr[i])?FirstNo^arr[i]:FirstNo;
+    if((mask&arr[i])!=0){
+        FirstNo=FirstNo^arr[i];
+    }
+}
+int SecondNo=0;
+SecondNo=xorNo^FirstNo;
+cout<<SecondNo<<"\t"<<FirstNo;
+
+}
+
+int main() {
+    int N;
+    cin>>N;
+    int arr[N];
+    for(int i=0;i<N;i++){
+        cin>>arr[i];
+    }
+    if(N!=0){
+    FindUnique2(arr,N);
+    }
+    
+}
